@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>النتيجة</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #F0F4FA;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #0B4C8C;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+    .result-box {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(11, 76, 140, 0.1);
+      width: 90%;
+      max-width: 500px;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.3rem;
+      margin: 15px 0;
+    }
+    button {
+      margin-top: 25px;
+      padding: 15px 40px;
+      background-color: #0B4C8C;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+      max-width: 220px;
+    }
+    button:hover {
+      background-color: #06386A;
+    }
+  </style>
+</head>
+<body>
+  <div class="result-box">
+    <h2>نتيجة الاختبار</h2>
+    <p id="score"></p>
+    <button onclick="goHome()">العودة للشاشة الرئيسية</button>
+    <button onclick="restartQuiz()">إعادة الاختبار</button>
+  </div>
+
+  <script>
+    // الإجابات الصحيحة حسب الأسئلة
+    const correctAnswers = {
+      q1: 'صح',
+      q2: 'صح',
+      q3: 'صح',
+      q4: 'صح',
+      q5: 'صح'
+    };
+
+    // حساب النتيجة
+    function calculateScore() {
+      let score = 0;
+      for (const [key, correctValue] of Object.entries(correctAnswers)) {
+        const userAnswer = localStorage.getItem(key);
+        if (userAnswer === correctValue) {
+          score++;
+        }
+      }
+      return score;
+    }
+
+    // عرض النتيجة في الصفحة مع التقييم
+    const score = calculateScore();
+    const totalQuestions = Object.keys(correctAnswers).length;
+
+    let feedback = "";
+    if (score < 1) {
+      feedback = "حاول مجدداً";
+    } else if (score >= 1 && score < 3) {
+      feedback = "جيد";
+    } else if (score === 3) {
+      feedback = "جيد";
+    } else if (score === 4) {
+      feedback = "جيد جداً";
+    } else if (score === 5) {
+      feedback = "أحسنت عملاً، ممتاز";
+    }
+
+    document.getElementById('score').textContent = `لقد أجبت بشكل صحيح على ${score} من أصل ${totalQuestions} أسئلة.`;
+
+    const feedbackParagraph = document.createElement('p');
+    feedbackParagraph.textContent = feedback;
+    document.querySelector('.result-box').appendChild(feedbackParagraph);
+
+    // العودة للشاشة الرئيسية
+    function goHome() {
+      window.location.href = 'index.html';
+    }
+
+    // إعادة الاختبار (تنظيف الإجابات ثم العودة للسؤال الأول)
+    function restartQuiz() {
+      localStorage.clear();
+      window.location.href = 'quiz1_math.html';
+    }
+  </script>
+</body>
+</html>

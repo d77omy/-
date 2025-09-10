@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>قوانين الرياضيات - الفصل الأول - الصف الثاني عشر (متقدم)</title>
+  <style>
+        body {
+            direction: rtl;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #003366;
+        }
+        h1 {
+            color: #004080;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #0066cc;
+            margin-top: 30px;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 5px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: right;
+            margin: 10px 0 30px 0;
+        }
+        li {
+            margin: 8px 0;
+            font-size: 18px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #004080;
+        }
+        .formula {
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #e0f0ff;
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+  </style>
+</head>
+<body>
+
+  <h1>قوانين الرياضيات - الفصل الأول - الصف الثاني عشر (متقدم)</h1>
+
+  <section id="preliminaries">
+    <h2>1. التمهيدات</h2>
+    <ul>
+      <li>دوال كثيرة الحدود، الأسية، اللوغاريتمية، المثلثية، والدوال العكسية.</li>
+      <li>خواص اللوغاريتمات:
+        <ul>
+          <li><code>log_a(xy) = log_a x + log_a y</code></li>
+          <li><code>log_a(x/y) = log_a x - log_a y</code></li>
+          <li><code>log_a(x^k) = k \times log_a x</code></li>
+          <li><code>log_a a = 1</code></li>
+          <li><code>log_a 1 = 0</code></li>
+        </ul>
+      </li>
+      <li>خواص الدوال الأسية:
+        <ul>
+          <li><code>a^{x+y} = a^x \times a^y</code></li>
+          <li><code>a^{x-y} = a^x / a^y</code></li>
+          <li><code>(a^x)^k = a^{xk}</code></li>
+        </ul>
+      </li>
+      <li>الدوال العكسية: إذا كانت <code>f(x)</code> دالة، فإن الدالة العكسية <code>f^{-1}(x)</code> تحقق <code>f(f^{-1}(x)) = x</code>.</li>
+    </ul>
+  </section>
+
+  <section id="limits-continuity">
+    <h2>2. النهايات والاتصال</h2>
+    <ul>
+      <li>تعريف النهاية: <code>lim_{x \to a} f(x) = L</code>.</li>
+      <li>خصائص النهايات:
+        <ul>
+          <li><code>lim_{x \to a} [f(x) \pm g(x)] = lim_{x \to a} f(x) \pm lim_{x \to a} g(x)</code></li>
+          <li><code>lim_{x \to a} [f(x) \cdot g(x)] = lim_{x \to a} f(x) \cdot lim_{x \to a} g(x)</code></li>
+          <li><code>lim_{x \to a} \frac{f(x)}{g(x)} = \frac{lim_{x \to a} f(x)}{lim_{x \to a} g(x)}</code> (إذا لم يكن المقام صفرًا)</li>
+        </ul>
+      </li>
+      <li>النهاية من اليمين واليسار.</li>
+      <li>تعريف الاتصال عند نقطة: <code>f</code> مستمرة عند <code>a</code> إذا <code>lim_{x \to a} f(x) = f(a)</code>.</li>
+    </ul>
+  </section>
+
+  <section id="differentiation">
+    <h2>3. التفاضل</h2>
+    <ul>
+      <li>تعريف المشتقة: <code>f'(x) = lim_{h \to 0} \frac{f(x+h) - f(x)}{h}</code>.</li>
+      <li>قواعد الاشتقاق:
+        <ul>
+          <li>مشتقة ثابت = 0.</li>
+          <li>مشتقة <code>x^n = n x^{n-1}</code>.</li>
+          <li>مشتقة <code>a^x = a^x \ln a</code>.</li>
+          <li>مشتقة <code>\ln x = \frac{1}{x}</code>.</li>
+          <li>مشتقة <code>\sin x = \cos x</code>.</li>
+          <li>مشتقة <code>\cos x = -\sin x</code>.</li>
+          <li>مشتقة <code>\tan x = \sec^2 x</code>.</li>
+          <li>قاعدة الجمع والطرح.</li>
+          <li>قاعدة الضرب: <code>(fg)' = f'g + fg'</code>.</li>
+          <li>قاعدة القسمة: <code>\left(\frac{f}{g}\right)' = \frac{f'g - fg'}{g^2}</code>.</li>
+          <li>قاعدة السلسلة: <code>\frac{d}{dx} f(g(x)) = f'(g(x)) \times g'(x)</code>.</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section id="applications-of-differentiation">
+    <h2>4. تطبيقات التفاضل</h2>
+    <ul>
+      <li>إيجاد المماس: <code>y - y_1 = f'(x_1)(x - x_1)</code>.</li>
+      <li>دراسة تغير الدالة من خلال إشارة المشتقة.</li>
+      <li>إيجاد القيم القصوى (العليا والدنيا) باستخدام المشتقة الأولى والثانية.</li>
+      <li>اختبار النقاط الحرجة: حيث <code>f'(x)=0</code> أو المشتقة غير معرفة.</li>
+      <li>المنحنيات: التحدب والتقعر من خلال المشتقة الثانية.</li>
+    </ul>
+  </section>
+
+  <section id="integration">
+    <h2>5. التكامل</h2>
+    <ul>
+      <li>التكامل المحدود: <code>\int_a^b f(x) \, dx</code>.</li>
+      <li>قوانين التكامل الأساسية:
+        <ul>
+          <li><code>\int a \, dx = ax + C</code>.</li>
+          <li><code>\int x^n \, dx = \frac{x^{n+1}}{n+1} + C</code> (لـ <code>n \neq -1</code>).</li>
+          <li><code>\int e^x \, dx = e^x + C</code>.</li>
+          <li><code>\int \frac{1}{x} \, dx = \ln |x| + C</code>.</li>
+          <li><code>\int \sin x \, dx = -\cos x + C</code>.</li>
+          <li><code>\int \cos x \, dx = \sin x + C</code>.</li>
+        </ul>
+      </li>
+      <li>قوانين الجمع والطرح في التكامل.</li>
+    </ul>
+  </section>
+
+  <section id="applications-of-definite-integrals">
+    <h2>6. تطبيقات على التكامل المحدود</h2>
+    <ul>
+      <li>حساب المساحات بين منحنيين.</li>
+      <li>حساب المساحة تحت المنحنى.</li>
+      <li>حساب الحجم بالتدوير (إذا كان ضمن المنهج).</li>
+    </ul>
+  </section>
+
+  <section id="methods-of-integration">
+    <h2>7. طرائق التكامل</h2>
+    <ul>
+      <li>التكامل بالتجزئة: <code>\int u \, dv = uv - \int v \, du</code>.</li>
+      <li>التكامل بالتعويض: <code>\int f(g(x)) g'(x) \, dx = \int f(u) \, du</code>.</li>
+      <li>دمج التكامل بالتعويض والتجزئة مع أمثلة.</li>
+    </ul>
+  </section>
+
+  <section id="first-order-differential-equations">
+    <h2>8. المعادلات التفاضلية من الدرجة الأولى</h2>
+    <ul>
+      <li>تعريف المعادلة التفاضلية: <code>\frac{dy}{dx} = f(x,y)</code>.</li>
+      <li>المعادلات التفاضلية الخطية من الدرجة الأولى.</li>
+      <li>طريقة الفصل المتغيرات.</li>
+      <li>المعادلات التفاضلية المتجانسة.</li>
+    </ul>
+  </section>
+
+<style>
+.btn-return {
+  display: block;          /* يجعله عنصر كتلة ليأخذ السطر كامل */
+  width: max-content;      /* عرض الزر يكون حسب المحتوى */
+  margin: 30px auto;       /* هامش عمودي 30px و أفقياً يوسّط */
+  background-color: #1e6fdb;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-return:hover
+  background-color: #144ea1;
+}
+</style>
+
+<button class="btn-return" onclick="window.location.href='index.html'">
+  العودة إلى الصفحة الرئيسية
+</button>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>السؤال 5</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #F0F4FA;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #0B4C8C;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .question-box {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(11, 76, 140, 0.1);
+      width: 90%;
+      max-width: 500px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .answer {
+      display: block;
+      background-color: #D9E9FF;
+      color: #0B4C8C;
+      border: none;
+      border-radius: 12px;
+      padding: 15px 20px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 10px 0;
+      transition: 0.3s;
+      text-align: right;
+    }
+
+    .answer:hover {
+      background-color: #0B4C8C;
+      color: white;
+    }
+
+    .next-btn {
+      margin-top: 30px;
+      padding: 15px 40px;
+      background-color: #0B4C8C;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+      max-width: 200px;
+    }
+
+    .next-btn:hover {
+      background-color: #06386A;
+    }
+
+    .home-btn {
+      margin-top: 15px;
+      padding: 15px 40px;
+      background-color: #cccccc;
+      color: #0B4C8C;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+      max-width: 200px;
+    }
+
+    .home-btn:hover {
+      background-color: #b0b0b0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="question-box">
+    <h2>السؤال 5: ما هو القانون الذي يربط القوة والكتلة والتسارع؟</h2>
+    <form id="quizForm">
+      <label class="answer"><input type="radio" name="q5" value="صح"> القوة = الكتلة × التسارع</label>
+      <label class="answer"><input type="radio" name="q5" value="خطأ"> الكتلة = السرعة ÷ القوة</label>
+      <label class="answer"><input type="radio" name="q5" value="خطأ"> القوة = التسارع ÷ الكتلة</label>
+
+      <button type="button" class="next-btn" onclick="saveAnswerAndFinish()">إنهاء</button>
+    </form>
+
+    <button class="home-btn" onclick="goHome()">العودة للشاشة الرئيسية</button>
+  </div>
+
+  <script>
+    function saveAnswerAndFinish() {
+      const selected = document.querySelector('input[name="q5"]:checked');
+      if (!selected) {
+        alert("يرجى اختيار إجابة.");
+        return;
+      }
+      localStorage.setItem('q5', selected.value);
+      window.location.href = 'result1.html'; // تأكد أن اسم الملف موجود فعلاً
+    }
+
+    function goHome() {
+      window.location.href = 'index.html';
+    }
+  </script>
+
+</body>
+</html>

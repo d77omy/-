@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>آلات حاسبة علمية</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f7f9fc;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+      color: #222;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    section {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #2980b9;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 10px;
+      background: #2980b9;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1c5983;
+    }
+
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>آلات حاسبة علمية - فيزياء وكيمياء</h1>
+
+  <!-- حاسبة التسارع -->
+  <section>
+    <h2>1. حاسبة التسارع (a = Δv / t)</h2>
+    <label>التغير في السرعة (م/ث):</label>
+    <input type="number" id="deltaV">
+    <label>الزمن (ثانية):</label>
+    <input type="number" id="time1">
+    <button onclick="calcAcceleration()">احسب</button>
+    <div class="result" id="accResult"></div>
+  </section>
+
+  <!-- حاسبة القوة -->
+  <section>
+    <h2>2. حاسبة القوة (F = m × a)</h2>
+    <label>الكتلة (كغ):</label>
+    <input type="number" id="massF">
+    <label>التسارع (م/ث²):</label>
+    <input type="number" id="accF">
+    <button onclick="calcForce()">احسب</button>
+    <div class="result" id="forceResult"></div>
+  </section>
+
+  <!-- حاسبة الطاقة الحركية -->
+  <section>
+    <h2>3. حاسبة الطاقة الحركية (½ × m × v²)</h2>
+    <label>الكتلة (كغ):</label>
+    <input type="number" id="massKE">
+    <label>السرعة (م/ث):</label>
+    <input type="number" id="velocityKE">
+    <button onclick="calcKE()">احسب</button>
+    <div class="result" id="keResult"></div>
+  </section>
+
+  <!-- حاسبة الكثافة -->
+  <section>
+    <h2>4. حاسبة الكثافة (ρ = m / V)</h2>
+    <label>الكتلة (غرام أو كغ):</label>
+    <input type="number" id="massD">
+    <label>الحجم (سم³ أو م³):</label>
+    <input type="number" id="volumeD">
+    <button onclick="calcDensity()">احسب</button>
+    <div class="result" id="densityResult"></div>
+  </section>
+
+  <!-- حاسبة الزمن (كيمياء) -->
+  <section>
+    <h2>5. حاسبة الزمن في التفاعل (بسيطة)</h2>
+    <label>كمية المادة المتفاعلة (مول):</label>
+    <input type="number" id="molReact">
+    <label>المعدل (مول/ثانية):</label>
+    <input type="number" id="rateReact">
+    <button onclick="calcReactionTime()">احسب</button>
+    <div class="result" id="timeReactResult"></div>
+  </section>
+
+  <!-- حاسبة تركيز المحلول -->
+  <section>
+    <h2>6. حاسبة تركيز المحلول (C = mol / V)</h2>
+    <label>عدد المولات:</label>
+    <input type="number" id="molConc">
+    <label>حجم المحلول (لتر):</label>
+    <input type="number" id="volConc">
+    <button onclick="calcConcentration()">احسب</button>
+    <div class="result" id="concResult"></div>
+  </section>
+
+  <!-- حاسبة السرعة -->
+  <section>
+    <h2>7. حاسبة السرعة (v = d / t)</h2>
+    <label>المسافة (متر):</label>
+    <input type="number" id="distanceSpeed">
+    <label>الزمن (ثانية):</label>
+    <input type="number" id="timeSpeed">
+    <button onclick="calcSpeed()">احسب</button>
+    <div class="result" id="speedResult"></div>
+  </section>
+
+  <script>
+    function calcAcceleration() {
+      const dv = parseFloat(document.getElementById("deltaV").value);
+      const t = parseFloat(document.getElementById("time1").value);
+      if (isNaN(dv) || isNaN(t) || t === 0) {
+        document.getElementById("accResult").innerText = "يرجى إدخال أرقام صحيحة والزمن لا يساوي صفر.";
+        return;
+      }
+      const result = dv / t;
+      document.getElementById("accResult").innerText = "التسارع = " + result.toFixed(2) + " م/ث²";
+    }
+
+    function calcForce() {
+      const m = parseFloat(document.getElementById("massF").value);
+      const a = parseFloat(document.getElementById("accF").value);
+      if (isNaN(m) || isNaN(a)) {
+        document.getElementById("forceResult").innerText = "يرجى إدخال أرقام صحيحة.";
+        return;
+      }
+      const result = m * a;
+      document.getElementById("forceResult").innerText = "القوة = " + result.toFixed(2) + " نيوتن";
+    }
+
+    function calcKE() {
+      const m = parseFloat(document.getElementById("massKE").value);
+      const v = parseFloat(document.getElementById("velocityKE").value);
+      if (isNaN(m) || isNaN(v)) {
+        document.getElementById("keResult").innerText = "يرجى إدخال أرقام صحيحة.";
+        return;
+      }
+      const result = 0.5 * m * v * v;
+      document.getElementById("keResult").innerText = "الطاقة الحركية = " + result.toFixed(2) + " جول";
+    }
+
+    function calcDensity() {
+      const m = parseFloat(document.getElementById("massD").value);
+      const v = parseFloat(document.getElementById("volumeD").value);
+      if (isNaN(m) || isNaN(v) || v === 0) {
+        document.getElementById("densityResult").innerText = "يرجى إدخال أرقام صحيحة والحجم لا يساوي صفر.";
+        return;
+      }
+      const result = m / v;
+      document.getElementById("densityResult").innerText = "الكثافة = " + result.toFixed(2);
+    }
+
+    function calcReactionTime() {
+      const mol = parseFloat(document.getElementById("molReact").value);
+      const rate = parseFloat(document.getElementById("rateReact").value);
+      if (isNaN(mol) || isNaN(rate) || rate === 0) {
+        document.getElementById("timeReactResult").innerText = "يرجى إدخال أرقام صحيحة والمعدل لا يساوي صفر.";
+        return;
+      }
+      const result = mol / rate;
+      document.getElementById("timeReactResult").innerText = "الزمن = " + result.toFixed(2) + " ثانية";
+    }
+
+    function calcConcentration() {
+      const mol = parseFloat(document.getElementById("molConc").value);
+      const vol = parseFloat(document.getElementById("volConc").value);
+      if (isNaN(mol) || isNaN(vol) || vol === 0) {
+        document.getElementById("concResult").innerText = "يرجى إدخال أرقام صحيحة والحجم لا يساوي صفر.";
+        return;
+      }
+      const result = mol / vol;
+      document.getElementById("concResult").innerText = "التركيز = " + result.toFixed(2) + " مول/لتر";
+    }
+
+    function calcSpeed() {
+      const d = parseFloat(document.getElementById("distanceSpeed").value);
+      const t = parseFloat(document.getElementById("timeSpeed").value);
+      if (isNaN(d) || isNaN(t) || t === 0) {
+        document.getElementById("speedResult").innerText = "يرجى إدخال أرقام صحيحة والزمن لا يساوي صفر.";
+        return;
+      }
+      const result = d / t;
+      document.getElementById("speedResult").innerText = "السرعة = " + result.toFixed(2) + " م/ث";
+    }
+  </script>
+
+  <div style="text-align: center; margin-top: 20px;">
+    <button class="btn-return" onclick="window.location.href='index.html'">
+      العودة إلى الصفحة الرئيسية
+    </button>
+  </div>
+
+</body>
+</html>
