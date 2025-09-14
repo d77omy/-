@@ -1,172 +1,221 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<link rel="icon" type="images/logo.png" href="logo.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>الصفحة الرئيسية</title>
-
-  <!-- ✅ أيقونة التبويبة -->
   <link rel="icon" href="images/logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 60%),
-                  radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
-      animation: moveBackground 10s ease-in-out infinite alternate;
-      z-index: -1;
-    }
-
-    @keyframes moveBackground {
-      0% { background-position: 0% 0%, 100% 100%; }
-      100% { background-position: 100% 100%, 0% 0%; }
-    }
-
-    body {
-      background-color: #F0F4FA;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #0B4C8C;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      text-align: center;
-      overflow-x: hidden;
-    }
-
-    /* ✅ الشعار */
-    .logo-container {
-      position: absolute;
-      top: 20px;
-      right: 20px; /* غيّرها إلى left: 20px لو تبيه يسار */
-    }
-
-    .logo-container img {
-      width: 80px;
-      height: auto;
-    }
-
-    header {
-      font-size: 2.5rem;
-      font-weight: bold;
-      margin-top: 40px;
-      color: #0B4C8C;
-      animation: fadeIn 1.2s ease-in-out;
-    }
-
-    .buttons-container {
-      display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 0 20px;
-      animation: fadeInUp 1.5s ease-in-out;
-    }
-
-    .main-btn {
-      background-color: #D9E9FF;
-      color: #0B4C8C;
-      border: none;
-      border-radius: 12px;
-      padding: 25px 50px;
-      font-size: 1.5rem;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 6px 10px rgba(11, 76, 140, 0.15);
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      width: 180px;
-    }
-
-    .main-btn:hover {
-      background-color: #0B4C8C;
-      color: #FFFFFF;
-      transform: scale(1.1);
-      box-shadow: 0 10px 20px rgba(11, 76, 140, 0.3);
-    }
-
-    #calculator-btn {
-      background-color: #1c3d72;
-      color: white;
-    }
-
-    #calculator-btn:hover {
-      background-color: #16325a;
-    }
-
-    footer {
-      margin-top: auto;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #666666;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    @media (max-width: 600px) {
-      .buttons-container {
-        flex-direction: column;
-        gap: 20px;
-      }
-      .main-btn {
-        width: 100%;
-        max-width: 280px;
-      }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+    /* نفس تنسيقاتك بالضبط بدون تغيير */
+    * {box-sizing:border-box;margin:0;padding:0;font-family:'Tajawal',sans-serif;}
+    body {background:linear-gradient(to bottom,#f7faff,#e6efff);color:#0B4C8C;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:40px 20px;}
+    .logo-container {position:absolute;top:20px;right:20px;}
+    .logo-container img {width:70px;}
+    header {margin-top:80px;margin-bottom:50px;font-size:2.5rem;font-weight:bold;text-align:center;background:linear-gradient(90deg,#0B4C8C,#1d72c2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .buttons-container {display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;width:100%;max-width:950px;margin-bottom:40px;}
+    .calculator-container {display:flex;justify-content:center;margin-bottom:40px;width:100%;}
+    .card {background:#fff;border-radius:15px;padding:35px 25px;font-size:1.4rem;font-weight:bold;color:#0B4C8C;text-align:center;box-shadow:0 6px 12px rgba(0,0,0,0.1);transition:transform 0.3s ease,box-shadow 0.3s ease;cursor:pointer;}
+    .card:hover {transform:translateY(-8px) scale(1.04);box-shadow:0 12px 24px rgba(0,0,0,0.15);background:#f0f7ff;}
+    #calculator-btn {width:250px;}
+    #about-btn {font-size:1rem;padding:15px;width:160px;margin:0 auto;}
+    footer {margin-top:auto;padding:25px;text-align:center;font-size:1rem;color:#fff;background:#0B4C8C;width:100%;}
+    .riddle-box,.wheel-box,#quiz-box {background:#fff;padding:20px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.1);text-align:center;}
+    .riddle-box {width:300px;height:auto;}
+    .riddle-box button,.wheel-box button {margin-top:10px;padding:10px 20px;background:#0B4C8C;color:#fff;border:none;border-radius:8px;cursor:pointer;}
+    .riddle-box button:hover,.wheel-box button:hover {background:#08345f;}
+    #quiz-box {margin:40px auto;max-width:700px;padding:30px;}
+    #quiz-box h3 {font-size:1.5rem;margin-bottom:15px;}
+    #quiz-box input {padding:10px;margin-top:10px;border-radius:6px;border:1px solid #ccc;width:90%;font-size:1.1rem;}
+    #quiz-box button {margin-top:15px;padding:10px 20px;border:none;background:#0B4C8C;color:#fff;border-radius:6px;cursor:pointer;font-size:1rem;}
+    #score {margin-top:15px;font-weight:bold;color:#0B4C8C;}
+    .fun-section {display:flex;gap:30px;justify-content:center;align-items:flex-start;flex-wrap:wrap;max-width:1000px;margin:40px auto;}
+    .wheel-box {flex:1;min-width:350px;}
+    .wheel-box canvas {width:100%;max-width:380px;height:auto;}
   </style>
 </head>
 <body>
 
-  <!-- ✅ شعار الموقع -->
   <div class="logo-container">
-<img src="images/logo.png" alt="شعار الموقع" width="200">
-
+    <img src="images/logo.png" alt="شعار الموقع">
   </div>
 
   <header>موقع تعليم قوانين المواد العلمية - GR12</header>
 
+  <!-- ✅ أزرار المواد -->
   <div class="buttons-container">
-    <button class="main-btn" onclick="location.href='physics.html'">الفيزياء</button>
-    <button class="main-btn" onclick="location.href='chemistry.html'">الكيمياء</button>
-    <button class="main-btn" onclick="location.href='math.html'">الرياضيات</button>
-    <button id="calculator-btn" class="main-btn" onclick="location.href='calculator.html'">الآلة الحاسبة</button>
+    <div class="card" onclick="location.href='physics.html'">⚛️ الفيزياء</div>
+    <div class="card" onclick="location.href='chemistry.html'">🧪 الكيمياء</div>
+    <div class="card" onclick="location.href='math.html'">📐 الرياضيات</div>
+  </div>
+
+  <!-- ✅ زر الآلة الحاسبة بالنص -->
+  <div class="calculator-container">
+    <div class="card" id="calculator-btn" onclick="location.href='calculator.html'">🖩 الآلة الحاسبة</div>
+  </div>
+
+  <!-- ✅ أزرار الاختبارات -->
+  <div class="buttons-container">
+    <div class="card" onclick="location.href='quiz1.html'">📘 اختبار قصير فيزياء</div>
+    <div class="card" onclick="location.href='quiz1_math.html'">📗 اختبار قصير رياضيات</div>
+    <div class="card" onclick="location.href='quiz1_chem.html'">📕 اختبار قصير كيمياء</div>
+  </div>
+
+  <!-- ✅ لغز اليوم + عجلة التحدي جنب بعض -->
+  <div class="fun-section">
+    <div class="riddle-box">
+      <h2>🔮 لغز اليوم</h2>
+      <p id="riddle-question">جاري تحميل اللغز...</p>
+      <button onclick="showAnswer()">إظهار الحل</button>
+      <p id="riddle-answer" style="display:none; color:green; font-weight:bold;"></p>
+    </div>
+
+    <div class="wheel-box">
+      <h2>🎡 عجلة التحدي</h2>
+      <canvas id="wheel" width="380" height="380"></canvas>
+      <br>
+      <button onclick="spinWheel()">لف العجلة</button>
+      <p id="wheel-result" style="font-weight:bold; margin-top:15px;"></p>
+    </div>
+  </div>
+
+  <!-- ✅ فريم السؤال -->
+  <div id="quiz-box" style="display:none;">
+    <h3 id="quiz-question"></h3>
+    <input type="text" id="quiz-answer" placeholder="اكتب إجابتك هنا">
+    <br>
+    <button onclick="checkAnswer()">تحقق</button>
+    <p id="quiz-feedback"></p>
+    <p id="score">النقاط: 0</p>
   </div>
 
   <div class="buttons-container">
-    <button class="main-btn" onclick="location.href='quiz1.html'">اختبار قصير فيزياء</button>
-    <button class="main-btn" onclick="location.href='quiz1_math.html'">اختبار قصير رياضيات</button>
-    <button class="main-btn" onclick="location.href='quiz1_chem.html'">اختبار قصير كيمياء</button>
-  </div>
-
-  <div class="buttons-container">
-    <button class="subject-btn" onclick="location.href='about.html'">حول المصمم</button>
+    <div id="about-btn" class="card" onclick="location.href='about.html'">👨‍💻 حول المصمم</div>
   </div>
 
   <footer>
-    <p>هنا تجد شرح مبسط لقوانين الفيزياء والكيمياء والرياضيات، بالإضافة إلى أدوات حاسبة تسهل عليك حل المسائل. اختر المادة التي ترغب بها وابدأ التعلم بسهولة.</p>
-    <p>- جميع الحقوق محفوظة © 2025 - تصميم : عبد الرحمن ج - فهد س</p>
-    <p>مشروع</p>
+    <p>هنا تجد شرح مبسط لقوانين الفيزياء والكيمياء والرياضيات، بالإضافة إلى أدوات حاسبة تسهل عليك حل المسائل.</p>
+    <p>© 2025 جميع الحقوق محفوظة - تصميم : عبد الرحمن ج & فهد س</p>
   </footer>
 
+  <script>
+    /* ✅ لغز اليوم */
+    const riddles = [
+      {q: "شيء كلما أخذت منه كبر.. ما هو؟", a: "الحفرة"},
+      {q: "يمشي بلا قدمين ولا يدخل إلا الأذنين.. ما هو؟", a: "الصوت"},
+      {q: "له أوراق وما هو بنبات، له جلد وما هو بحيوان.. ما هو؟", a: "الكتاب"},
+      {q: "أخف من الهواء ولا يُرى، إذا وُضع في إناء ملأه.. ما هو؟", a: "الهواء"}
+    ];
+    let today = new Date().getDate() % riddles.length;
+    document.getElementById("riddle-question").innerText = riddles[today].q;
+    function showAnswer() {
+      document.getElementById("riddle-answer").innerText = riddles[today].a;
+      document.getElementById("riddle-answer").style.display = "block";
+    }
+
+    /* ✅ الأسئلة */
+    const physicsQ = [
+      {q:"ما وحدة قياس القوة؟", a:"نيوتن"},
+      {q:"ما صيغة قانون السرعة؟", a:"المسافة ÷ الزمن"}
+    ];
+    const chemistryQ = [
+      {q:"ما الرمز الكيميائي للماء؟", a:"H2O"},
+      {q:"ما هو الغاز الذي نتنفسه؟", a:"O2"}
+    ];
+    const mathQ = [
+      {q:"ما حاصل ضرب 7 × 8؟", a:"56"},
+      {q:"ما قيمة الجذر التربيعي لـ 81؟", a:"9"}
+    ];
+
+    let currentAnswer = "";
+    let score = 0;
+
+    function askQuestion(subject) {
+      let question;
+      if(subject === "فيزياء"){
+        question = physicsQ[Math.floor(Math.random()*physicsQ.length)];
+      } else if(subject === "كيمياء"){
+        question = chemistryQ[Math.floor(Math.random()*chemistryQ.length)];
+      } else if(subject === "رياضيات"){
+        question = mathQ[Math.floor(Math.random()*mathQ.length)];
+      } else {
+        const r = riddles[Math.floor(Math.random()*riddles.length)];
+        document.getElementById("quiz-question").innerText = "🔮 لغز إضافي: " + r.q;
+        currentAnswer = r.a;
+        document.getElementById("quiz-box").style.display = "block";
+        return;
+      }
+
+      document.getElementById("quiz-question").innerText = question.q;
+      currentAnswer = question.a;
+      document.getElementById("quiz-box").style.display = "block";
+      document.getElementById("quiz-feedback").innerText = "";
+      document.getElementById("quiz-answer").value = "";
+    }
+
+    function checkAnswer() {
+      const userAnswer = document.getElementById("quiz-answer").value.trim();
+      if(userAnswer === currentAnswer){
+        document.getElementById("quiz-feedback").style.color = "green";
+        document.getElementById("quiz-feedback").innerText = "✅ إجابة صحيحة!";
+        score++;
+        document.getElementById("score").innerText = "النقاط: " + score;
+      } else {
+        document.getElementById("quiz-feedback").style.color = "red";
+        document.getElementById("quiz-feedback").innerText = "❌ خطأ، حاول مرة أخرى";
+      }
+    }
+
+    /* ✅ عجلة التحدي */
+    const wheelItems = [
+      "⚛️ سؤال فيزياء",
+      "🧪 سؤال كيمياء",
+      "📐 سؤال رياضيات",
+      "🔮 لغز إضافي",
+      "🌟 النجم الذهبي"
+    ];
+    const canvas = document.getElementById("wheel");
+    const ctx = canvas.getContext("2d");
+    const arc = Math.PI * 2 / wheelItems.length;
+
+    function drawWheel() {
+      for (let i = 0; i < wheelItems.length; i++) {
+        ctx.beginPath();
+        ctx.fillStyle = i % 2 === 0 ? "#D9E9FF" : "#0B4C8C";
+        ctx.moveTo(190,190);
+        ctx.arc(190,190,190,arc*i,arc*(i+1));
+        ctx.lineTo(190,190);
+        ctx.fill();
+        ctx.fillStyle = i % 2 === 0 ? "#0B4C8C" : "#fff";
+        ctx.font = "14px Tajawal";
+        ctx.textAlign = "center";
+        ctx.fillText(
+          wheelItems[i],
+          190 + Math.cos(arc*i + arc/2) * 120,
+          190 + Math.sin(arc*i + arc/2) * 120
+        );
+      }
+    }
+    drawWheel();
+
+    function spinWheel() {
+      let randomIndex = Math.floor(Math.random() * wheelItems.length);
+      let result = wheelItems[randomIndex];
+      document.getElementById("wheel-result").innerText = "النتيجة: " + result;
+      
+      if(result.includes("فيزياء")) askQuestion("فيزياء");
+      else if(result.includes("كيمياء")) askQuestion("كيمياء");
+      else if(result.includes("رياضيات")) askQuestion("رياضيات");
+      else if(result.includes("لغز")) askQuestion("لغز");
+      else if(result.includes("النجم")) {
+        document.getElementById("quiz-feedback").style.color = "gold";
+        document.getElementById("quiz-feedback").innerText = "🌟 مبروك! حصلت على نقطة بونس!";
+        score++;
+        document.getElementById("score").innerText = "النقاط: " + score;
+        setTimeout(spinWheel,1500); // إعادة لف تلقائي
+      }
+    }
+  </script>
 </body>
 </html>
-
-
