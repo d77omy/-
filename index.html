@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+<link rel="icon" type="image/png" href="images/logo.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>الصفحة الرئيسية</title>
+
+  <!-- ✅ أيقونة التبويبة -->
+  <link rel="icon" href="images/logo.png" type="image/png">
+
   <style>
     body::before {
       content: "";
@@ -19,12 +24,8 @@
     }
 
     @keyframes moveBackground {
-      0% {
-        background-position: 0% 0%, 100% 100%;
-      }
-      100% {
-        background-position: 100% 100%, 0% 0%;
-      }
+      0% { background-position: 0% 0%, 100% 100%; }
+      100% { background-position: 100% 100%, 0% 0%; }
     }
 
     body {
@@ -41,6 +42,18 @@
       gap: 40px;
       text-align: center;
       overflow-x: hidden;
+    }
+
+    /* ✅ الشعار */
+    .logo-container {
+      position: absolute;
+      top: 20px;
+      right: 20px; /* غيّرها إلى left: 20px لو تبيه يسار */
+    }
+
+    .logo-container img {
+      width: 80px;
+      height: auto;
     }
 
     header {
@@ -60,7 +73,6 @@
       animation: fadeInUp 1.5s ease-in-out;
     }
 
-    /* زر موحد لكل شيء */
     .main-btn {
       background-color: #D9E9FF;
       color: #0B4C8C;
@@ -82,7 +94,6 @@
       box-shadow: 0 10px 20px rgba(11, 76, 140, 0.3);
     }
 
-    /* زر الآلة الحاسبة لون خاص */
     #calculator-btn {
       background-color: #1c3d72;
       color: white;
@@ -105,38 +116,32 @@
         flex-direction: column;
         gap: 20px;
       }
-
       .main-btn {
         width: 100%;
         max-width: 280px;
       }
     }
 
-    /* أنيميشن */
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
 
-  <header>موقع تعليم قوانين المواد العلمية - الصف الثاني عشر</header>
+  <!-- ✅ شعار الموقع -->
+  <div class="logo-container">
+<img src="images/logo.png" alt="شعار الموقع" width="200">
+
+  </div>
+
+  <header>موقع تعليم قوانين المواد العلمية - GR12</header>
 
   <div class="buttons-container">
     <button class="main-btn" onclick="location.href='physics.html'">الفيزياء</button>
@@ -151,15 +156,14 @@
     <button class="main-btn" onclick="location.href='quiz1_chem.html'">اختبار قصير كيمياء</button>
   </div>
 
- <div class="buttons-container">
-<button class="subject-btn" onclick="location.href='about.html'">حول المصمم</button>
+  <div class="buttons-container">
+    <button class="subject-btn" onclick="location.href='about.html'">حول المصمم</button>
   </div>
 
   <footer>
     <p>هنا تجد شرح مبسط لقوانين الفيزياء والكيمياء والرياضيات، بالإضافة إلى أدوات حاسبة تسهل عليك حل المسائل. اختر المادة التي ترغب بها وابدأ التعلم بسهولة.</p>
-<p> -جميع الحقوق محفوظة © 2025 - تصميم :عبد الرحمن ج - فهد س</p>
-<p>مشروع <p>
-
+    <p>- جميع الحقوق محفوظة © 2025 - تصميم : عبد الرحمن ج - فهد س</p>
+    <p>مشروع</p>
   </footer>
 
 </body>
